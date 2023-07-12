@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initaial-scale=1.0">
+    <head>
+        <style>
+            @media (min-width: 600px) 
+            { body{
+                background-color:  rgb(0, 255, 4);;
+
+            }
+
+            }
+            @media (max-width: 599px) 
+            { body{
+                background-color: rgb(253, 85, 191);
+                
+            }
+
+            }
+        </style>
+        <script>
+        
+            document.addEventListener('DOMContentLoaded' , () => {
+
+            
+                
+                document.querySelector('#task').onkeyup = () => {
+                    if(document.querySelector('#task').value.length >0) {
+                        document.querySelector('#submit').disabled = false;
+
+                    }
+                    else {
+                        document.querySelector('#submit').disabled = true;
+                    }
+                
+                }
+             document.querySelector('form').onsubmit = () => {
+                const task = document.querySelector('#task').value;
+   const li = document.createElement('li');
+   li.innerHTML =task;
+   document.querySelector('#tasks').append(li);
+   document.querySelector('#task').value ='';
+   document.querySelector('#submit').disabled = true;
+
+                return false
+
+             }
+                
+
+            })
+        </script>
+    </head>
+    <body>
+      <h1>tasks</h1> 
+      <ul id="tasks">
+
+      </ul> 
+      <form action="">
+        <input type="text" id="task" placeholder="new tasks">
+        <input type="submit" id="submit" >
+      </form>
+    </body>
+</html>
